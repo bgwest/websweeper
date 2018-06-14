@@ -10,11 +10,11 @@
         var styleSheet = document.getElementById("websweepStyle");
         if (window.innerWidth <= 500 ) {
           // largest phone screen currently is maybe 500px
-          styleSheet.setAttribute("href", "/css/webmobile.css");
+          styleSheet.setAttribute("href", "./css/webmobile.css");
           console.log('loaded mobile css');
         } else if ( window.innerWidth >= 501 ) {
           // iPad Pro is 1024px*
-          styleSheet.setAttribute("href", "/css/web.css");
+          styleSheet.setAttribute("href", "./css/web.css");
           console.log('loaded web css');
         }
       }
