@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link id="websweepStyle" rel="stylesheet" type="text/css" href="/css/web.css">
+    <script>
+      function handleLayout() {
+        var styleSheet = document.getElementById("websweepStyle");
+        if (window.innerWidth <= 500 ) {
+          // largest phone screen currently is maybe 500px
+          styleSheet.setAttribute("href", "/css/webmobile.css");
+          console.log('loaded mobile css');
+        } else if ( window.innerWidth >= 501 ) {
+          // iPad Pro is 1024px*
+          styleSheet.setAttribute("href", "/css/web.css");
+          console.log('loaded web css');
+        }
+      }
+      // runs before any markup is written to DOM...
+      window.onresize = handleLayout;
+      handleLayout();
+    </script>
+    <title>Websweeper</title>
+    <h1 class="siteHeader" title="Websweeper.js"><a onmouseover="this.style.textDecoration='underline'"  onmouseout="this.style.textDecoration='none'" href='/index.html'>Websweeper.js</a></h1>
+    <h5 class="siteEdition">No Flags (NF) Local Edition</h5>
+</head>
+<body id="browserBody" style="zoom: 100%;">
+  <div id="Game">
+    <script>
+        function testPlayerValue() {
+          // only allow -, _, alpha, and numeric values for player name
+          // search globally and case insensitive 
+          if (!/^[a-z0-9\_\-]*$/gi.test(playerName.value)) {
+            alert(`\n${playerName.value} is an invalid player name.\nPlease adjust before starting game.`);
+            alert('\nAllowed:\nAll alpha and numeric characters.\n\nNot Allowed:\nspaces. The only special characters that are allowed are - _\n\n')
+            playerName.focus();
+            playerName.value = '';
+            return false;
+          }
+        }
+    </script>
+    <div id="board">
+        <form id="playerForm" onmouseleave="testPlayerValue();">
+            <text id="playerFormTitle"><strong>Player Name:</strong></text><br>
+            <input id="playerName" type="text" name="playerName" onfocus="this.value=''" onmouseover="changeColor('mouseOver','#playerName');" onmouseout="changeColor('mouseOut','#playerName');">
+          </form>
+          <div id="sizeSelection">
+            <script src="./components/WebSweeper.js" type="module"></script>
+            <h3 class="sizeSelectionText">Select Your Board Size:</h3>
+            <form id="htmlform" onsubmit="return false;">
+              <input id="small" type="radio" name="size" value="Small" checked>
+              <span class="form-items">
+                <text class="selectTxtSmall">Small - (New players or speed games)</text>
+              </span><br>
+              <input id="med" type="radio" name="size" value="Medium">
+              <span class="form-items">
+                <text class="selectTxtMed">Medium - (Intermediate)</text>
+              </span><br>
+              <input id="lrg" type="radio" name="size" value="Large">
+              <span class="form-items">
+                <text class="selectTxtLrg">Large - (Expert)</text>
+              </span>
+              <br><br>
+              <input id="submitSize" onmouseover="changeColor('mouseOver','#submitSize');" onmouseout="changeColor('mouseOut','#submitSize');" type="submit" value="Start game">
+              <script>
+                function changeColor(motion, qSelector) {
+                  if ( motion === 'mouseOut') {
+                    document.querySelector(qSelector).style.borderColor = "#dcdcdc";
+                  } else if ( motion === 'mouseOver' ) {
+                    if ( qSelector === '#gameTimer' ) {
+                      document.querySelector(qSelector).style.borderColor = "#009688";
+                      document.querySelector(qSelector).style.borderWidth = "2px";
+                    } else {
+                        document.querySelector(qSelector).style.borderColor = "#2c549ad4";
+                        document.querySelector(qSelector).style.borderWidth = "2px";
+                      }
+                  }
+                };
+              </script>
+            </form>
+          </div>
+          <div id="gameTimer" class="timerElements" onmouseover="changeColor('mouseOver','#gameTimer');" onmouseout="changeColor('mouseOut','#gameTimer');"><h1 id="timerText"></h1></div>
+          <script>
+             // need to move to js files eventually
+             document.getElementsByClassName("timerElements")[0].style.display = 'none';
+          </script>
+          <div id="legalSquaresLeft" onmouseover="changeColor('mouseOver','#legalSquaresLeft');" onmouseout="changeColor('mouseOut','#legalSquaresLeft');"></div>
+          <div id="gamestatus"></div>
+    </div>
+    <div id="leaderBoard" title="After 'Victory!' please click reset to refresh leaderBoard :)" onmouseover="changeColor('mouseOver','#leaderBoard');" onmouseout="changeColor('mouseOut','#leaderBoard');">
+      <div class="leaderHeader"><h1><text class="leaderHeaderText">Leaderboard</text></h1></div>
+      <div class="leaderRow" id="game0"></div>
+      <div class="leaderRow" id="game1"></div>
+      <div class="leaderRow" id="game2"></div>
+      <div class="leaderRow" id="game3"></div>
+      <div class="leaderRow" id="game4"></div>
+      <div class="leaderRow" id="game5"></div>
+      <div class="leaderRow" id="game6"></div>
+      <div class="leaderRow" id="game7" class="lastLeaderRow"></div>
+    </div>
+  </div>
+</body>
+<div id="datFooter" onmouseover="changeColor('mouseOver','#datFooter');" onmouseout="changeColor('mouseOut','#datFooter');">
+    <h5 id="siteCreator">created by: benjamin g. west</h5>
+    <p id="siteNote">Want to see this developed further and or collaborate? <br />Please msg me <a id="footerLinks" href='https://twitter.com/bengeast'>@bengeast</a> or jump in <a id="footerLinks" href='https://github.com/bgwest/minesweeper'>@github</a></p>
+</div>
+</html>
