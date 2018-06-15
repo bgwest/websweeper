@@ -44,8 +44,29 @@
     <div id="board">
         <form id="playerForm" onmouseleave="testPlayerValue();">
             <text id="playerFormTitle"><strong>Player Name:</strong></text><br>
-            <input id="playerName" type="text" name="playerName" onfocus="this.value=''" onmouseover="changeColor('mouseOver','#playerName');" onmouseout="changeColor('mouseOut','#playerName');">
+            <input id="playerName" type="text" name="playerName" onKeyPress="return stopEnterKeyFromSubmittingPlayerName(event)" onfocus="this.value=''" onmouseover="changeColor('mouseOver','#playerName');" onmouseout="changeColor('mouseOut','#playerName');">
           </form>
+          <script type="text/javascript"> 
+            function stopEnterKeyFromSubmittingPlayerName(e){      
+              var key;
+              // support IE
+              if(window.event){ 
+                // store the key code (Key number) of the pressed key 
+                key = window.event.keyCode; 
+              } else { 
+                // support FF / Safari / Chrome
+                key = e.which;      
+              } 
+              // 13 = enter key
+              if ( key == 13 ) {
+                console.log('enter key disabled to help mobile devices.'); 
+                return false; 
+              } else { 
+                //continue as normal (allow the key press for keys other than "enter") 
+                return true; 
+              }   
+            } 
+            </script>
           <div id="sizeSelection">
             <script src="./components/WebSweeper.js" type="module"></script>
             <h3 class="sizeSelectionText">Select Your Board Size:</h3>
