@@ -10,7 +10,7 @@ var scriptName = 'WebSweeper.js';
 import { gameParams, submitButton } from './GetGameParameters.js';
 import { genGuiBaseBoard } from './MakeBaseBoard.js';
 import { genGuiPlaceBombs, genGuiPlaceNumbers, genGuiPlayerHUD, getNumberOfLegalSquares } from './SetBoard.js';
-import { playerClick } from './Gameplay.js';
+import { playerClick } from './GamePlay.js';
 
 // wait to create game board
 document.addEventListener('DOMContentLoaded', function() { 
