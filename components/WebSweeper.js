@@ -60,10 +60,10 @@ function makeGame() {
   WebSweeper.AddListeners();
   WebSweeper.SetBoard(gameParams.lastRow, gameParams.lastCol, gameParams.numOfBombs);
   // if small board and on mobile, adjust the gameBoard selector
-  if ( gameParams.sheetType === '/css/webmobile.css' && gameParams.size === 'Small' ) {
+  if ( gameParams.sheetType === './css/webmobile.css' && gameParams.size === 'Small' ) {
     document.querySelector("#gameBoard").style.marginLeft = "132px";
     console.log(document.querySelector("#gameBoard").style.marginLeft);
-  } else if ( gameParams.sheetType === '/css/web.css' && gameParams.size === 'Small' ) {
+  } else if ( gameParams.sheetType === './css/web.css' && gameParams.size === 'Small' ) {
       document.querySelector("#gameBoard").style.marginLeft = "120px";
       console.log(document.querySelector("#gameBoard").style.marginLeft);
   }

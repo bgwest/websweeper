@@ -69,7 +69,7 @@ function determineGameParams(value) {
       gameParams.numOfBombs = 99;
       gameParams.width = 646;
       gameParams.height = 324;
-      if ( gameParams.sheetType === '/css/webmobile.css' ) {
+      if ( gameParams.sheetType === './css/webmobile.css' ) {
         // helps support mobile without need for lots of manual pinch-zooming
         gameParams.lastCol = 16;
         gameParams.lastRow = 32;
