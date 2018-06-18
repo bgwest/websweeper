@@ -1,6 +1,6 @@
 # Websweeper.js NFLE (No Flags Local Edition)
 
-Originally, Websweeper.js (https://bgwest.github.io/websweeper/) started out as the other folder in this repo called "minesweeper_cli". I needed to create that for a Codecademy Credential class called 'Building Front-End Web Applications from Scratch'. The instructions for how to run that version can be found in minesweeper_cli/src/game.js at the top of the file.
+Originally, Websweeper.js (https://bgwest.github.io/websweeper/) started out as a folder in my minesweeper repo (https://github.com/bgwest/minesweeper) called "minesweeper_cli". I needed to create that for a Codecademy Credential class called 'Building Front-End Web Applications from Scratch'. The instructions for how to run that version can be found in minesweeper_cli/src/game.js at the top of the file.
 
 This new Web GUI version I created from scratch using purely vanilla JS/HTML/CSS, is a 'NF' edition. NF stands for no flags and is a playing style of some minesweeper players (http://www.minesweeper.info/wiki/Strategy#Efficiency). Those that enjoy playing with NF might enjoy this version. Hybrid players and flag players may not enjoy this version.
 
