@@ -8,6 +8,8 @@ This new Web GUI version I created from scratch using purely vanilla JS/HTML/CSS
 
 - Move leaderboard to be ranked by board sizes (Small/Med/Lrg). That may be more desireable way to display ranked games. For now, all game sizes are noted but clustered in together.
 
+- Have leaderBoard refresh after a Victory instead of needing to click reset.
+
 - Local storage is great but a pain and can be erased easily. Serious players may not enjoy this quality of this 'Local' version. Possibly look at hosting it elsewhere and have a light backend for datastore to compete against other players that use this game.
 
 - Add a dictionary API to default playername to random words
